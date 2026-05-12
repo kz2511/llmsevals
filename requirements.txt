@@ -1,0 +1,7 @@
+# Core runtime dependencies — kept in sync with [project.dependencies] in pyproject.toml.
+# pyproject.toml is the authoritative source of truth for installation.
+# This file exists for convenience (e.g. pip install -r requirements.txt in CI images).
+pydantic>=2.0
+rich>=13.0
+tiktoken>=0.5.0
+httpx>=0.25.0

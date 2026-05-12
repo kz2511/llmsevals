@@ -1,0 +1,112 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llmsevals"
+dynamic = ["version"]
+description = "A lightweight, provider-agnostic Python package for evaluating LLMs across quality, safety, cost, and latency dimensions."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [
+    {name = "llmsevals contributors", email = "contributors@llmsevals.dev"}
+]
+maintainers = [
+    {name = "llmsevals contributors", email = "contributors@llmsevals.dev"}
+]
+keywords = [
+    "llm", "evaluation", "testing", "ai", "nlp",
+    "hallucination", "faithfulness", "rag", "benchmark",
+    "openai", "anthropic", "gemini", "ollama"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Environment :: Console",
+    "Framework :: AsyncIO",
+    "Framework :: Jupyter",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Text Processing :: Linguistic",
+    "Typing :: Typed",
+]
+dependencies = [
+    "pydantic>=2.0",
+    "rich>=13.0",
+    "tiktoken>=0.5.0",
+    "httpx>=0.25.0",
+]
+
+[project.optional-dependencies]
+openai = ["openai>=1.0"]
+anthropic = ["anthropic>=0.20"]
+google = ["google-generativeai>=0.5"]
+ollama = ["ollama>=0.1"]
+all = [
+    "openai>=1.0",
+    "anthropic>=0.20",
+    "google-generativeai>=0.5",
+    "ollama>=0.1",
+    "nest_asyncio>=1.5",
+]
+notebook = ["nest_asyncio>=1.5"]
+dev = [
+    "pytest>=7.0",
+    "pytest-asyncio>=0.21",
+    "pytest-cov>=4.0",
+    "ruff>=0.3",
+    "mypy>=1.5",
+    "nest_asyncio>=1.5",
+]
+
+[project.scripts]
+llmsevals-eval = "llmsevals.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/llmsevals/llmsevals"
+Documentation = "https://github.com/llmsevals/llmsevals#readme"
+Repository = "https://github.com/llmsevals/llmsevals"
+Issues = "https://github.com/llmsevals/llmsevals/issues"
+Changelog = "https://github.com/llmsevals/llmsevals/blob/main/CHANGELOG.md"
+
+[tool.setuptools.dynamic]
+version = {attr = "llmsevals._version.__version__"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+llmsevals = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+filterwarnings = [
+    "ignore::pytest.PytestCollectionWarning",
+]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP"]
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true

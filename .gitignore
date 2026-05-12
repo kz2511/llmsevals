@@ -1,0 +1,73 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+dist/
+build/
+*.whl
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Testing
+.pytest_cache/
+htmlcov/
+.coverage
+coverage.xml
+
+# Type checking
+.mypy_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment / secrets — never commit
+.env
+.env.local
+*.env
+secrets.json
+.secrets/
+
+# Ruff
+.ruff_cache/
+
+# Logs & runtime-generated reports
+*.log
+eval_results/
+reports/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Root-level docs (internal — exclude all except README.md)
+CHANGELOG.md
+CONTRIBUTING.md
+IMPLEMENTATION_PLAN.md
+PRODUCTION_ROADMAP.md
+TESTING_GUIDELINES.md
+
+# Docs (internal — exclude all except index)
+docs/01_project_overview.md
+docs/02_architecture.md
+docs/03_getting_started.md
+docs/04_metrics_guide.md
+docs/05_providers_guide.md
+docs/06_reporters_guide.md
+docs/07_api_reference.md
+docs/08_cicd_integration.md
+docs/09_security.md
+docs/10_roadmap.md
+docs/CODE_ANALYSIS_REPORT.md
